@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Job Freak </title>
+  <style>
+    /* CSS for left panel */
+    .left-panel {
+      width: 200px;
+      height: 100%;
+      background-color: #f2f2f2;
+      float: left;
+    }
+     /* CSS for content area */
+    .content {
+      margin-left: 200px;
+      padding: 20px;
+    }
+     /* CSS for active menu item */
+    .active {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <!-- Left panel -->
+  <div class="left-panel">
+    <ul>
+      <li><a href="#" onclick="showContent('home')">Home</a></li>
+      <li><a href="#" onclick="showContent('contact')">Contact</a></li>
+      <li><a href="#" onclick="showContent('information')">Information</a></li>
+      <li><a href="#" onclick="showContent('guide')">Guide</a></li>
+    </ul>
+  </div>
+   <!-- Content area -->
+  <div class="content">
+    <div id="home" style="display: none;">
+      <h2>Welcome to the Home page!</h2>
+      <p>This is the home page content.</p>
+    </div>
+    <div id="contact" style="display: none;">
+      <h2>Contact Information</h2>
+      <p>This is the contact page content.</p>
+    </div>
+    <div id="information" style="display: none;">
+      <h2>Information</h2>
+      <p>This is the information page content.</p>
+    </div>
+    <div id="guide" style="display: none;">
+      <h2>Guide</h2>
+      <p>This is the guide page content.</p>
+    </div>
+  </div>
+   <script>
+    function showContent(page) {
+      // Hide all content divs
+      var contentDivs = document.getElementsByClassName("content")[0].children;
+      for (var i = 0; i < contentDivs.length; i++) {
+        contentDivs[i].style.display = "none";
+      }
+       // Show the selected content div
+      document.getElementById(page).style.display = "block";
+       // Update active menu item
+      var menuItems = document.getElementsByTagName("a");
+      for (var i = 0; i < menuItems.length; i++) {
+        menuItems[i].classList.remove("active");
+      }
+      document.querySelector('a[href="#"]').classList.add("active");
+    }
+  </script>
+</body>
+</html>
